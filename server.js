@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const morgan = require('morgan');
 require('dotenv').config();
 const app = express();
 
@@ -12,16 +11,15 @@ const db = mongoose.connection;
 db.on('connected', () => console.log('Connected to MongoDB'));
 db.on('error', (error) => console.log('MongoDB Error ' + error.message));
 
-app.use(morgan);
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
 
 app.get('/home', (req,res) => {
-  res.render('home.ejs');
+  res.render('home.ejs')
 });
 
 app.get('*', (req,res) => {
-  res.redirect('/home');
+  res.redirect('/home')
 });
 
 const PORT = process.env.PORT;
