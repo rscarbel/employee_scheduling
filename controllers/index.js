@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.render('home.ejs', { user: req.session.user });
+router.get('/schedule', (req, res) => {
+    res.render('schedule.ejs', { user: req.session.user });
 });
 
 module.exports = router;
