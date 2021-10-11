@@ -3,6 +3,7 @@ const express = require('express');
 require('dotenv').config();
 const indexController = require('./controllers/index');
 const usersController = require('./controllers/users');
+const employeeController = require('./controllers/employee')
 const expressSession = require('express-session')
 const app = express();
 
@@ -20,11 +21,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(expressSession({
   secret: process.env.secret,
   resave: false,
-  saveUnitialized:false
+  saveUninitialized: false,
 }))
 
 app.use('/', indexController);
 app.use('/', usersController);
+app.use('/',employeeController)
 
 app.get('*', (req, res) => {
   res.redirect('/schedule')

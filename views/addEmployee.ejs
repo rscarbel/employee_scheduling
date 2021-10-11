@@ -10,6 +10,54 @@
   <title>Add Employee</title>
 </head>
 <body>
+  <% if(user ) { %>
 
+    <h1>Add Employees</h1>
+    <nav>
+      <a href="/logout">Logout</a>
+    </nav>
+    <form class="shadow" action="/addEmployee" method="POST" autocomplete="off">
+        <label>First Name:
+            <input type="text" name="firstName" required>
+        </label>
+        <label>Last Name:
+            <input type="text" name="lastName" required>
+        </label>
+        <label>Email:
+          <input type="email" name="email" required>
+      </label>
+      <label>Availability:
+        <label> Monday:
+          <input type="checkbox" value="true" name="availability.monday">
+        </label>
+        <label> Tuesday:
+          <input type="checkbox" value="true" name="availability.tuesday">
+        </label>
+        <label> Wednesday:
+          <input type="checkbox" value="true" name="availability.wednesday">
+        </label>
+        <label> Thursday:
+          <input type="checkbox" value="true" name="availability.thursday">
+        </label>
+        <label> Friday:
+          <input type="checkbox" value="true" name="availability.friday">
+        </label>
+        <label> Saturday:
+          <input type="checkbox" value="true" name="availability.saturday">
+        </label>
+        <label> Sunday:
+          <input type="checkbox" value="true" name="availability.sunday">
+        </label>
+    </label>
+        <button class="shadow">Sign Up</button>
+    </form>
+    <a href="/schedule"><button>Back to Home</button></a>
+<% } else { %>
+    <nav>
+      <a href="/login">Login</a>
+      <a href="/signup">Signup</a>
+    </nav>
+
+<% } %>
 </body>
 </html>

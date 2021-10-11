@@ -16,7 +16,27 @@
       <nav>
         <a href="/logout">Logout</a>
       </nav>
-      <a href="/viewEmployees"><button>Add or Remove Employee</button></a>
+      <h3>Add or Remove Employees</h3>
+      <div>
+        <button>+</button>
+        <button>-</button>
+      </div>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Availability</th>
+        </tr>
+        <%for (let i = 0;i<employees.length;i++) {%>
+        <tr>
+          <td><%=employees[i].firstName%> <%=employees[i].lastName%></td>
+          <td><%=employees[i].email%></td>
+          <td><%=employees[i].availability%></td>
+        </tr>
+        <%}%>
+
+      </table>
+      <a href="/schedule"><button>Back to Home</button></a>
   <% } else { %>
 
       <nav>
