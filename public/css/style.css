@@ -65,6 +65,15 @@ form > button:hover {
   justify-content: space-around;
 }
 
+.forgot-password {
+  color:blue;
+  text-align: center;
+  font-weight: 700;
+  font-size:0.7em;
+  margin-top: 1.2em;
+  cursor: pointer;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
