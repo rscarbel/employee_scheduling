@@ -10,6 +10,20 @@
   <title>Schedule</title>
 </head>
 <body>
-  <h1>Home Page</h1>
+  <% if(user) { %>
+
+      <h1>Home Page</h1>
+      <nav>
+        <a href="/logout">Logout</a>
+      </nav>
+
+  <% } else { %>
+
+      <nav>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+      </nav>
+
+  <% } %>
 </body>
 </html>
