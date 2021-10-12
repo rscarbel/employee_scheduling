@@ -23,7 +23,7 @@ router.get('/viewEmployees', isAuthenticated, (req, res) => {
 });
 
 router.get('/addEmployee', isAuthenticated, (req,res) => {
-  res.render('/addEmployee.ejs')
+  res.render('addEmployee.ejs')
 })
 
 router.post('/addEmployee', isAuthenticated, (req, res) => {
@@ -31,6 +31,10 @@ router.post('/addEmployee', isAuthenticated, (req, res) => {
      res.redirect('/viewEmployees')
    })
 });
+
+router.post('/employee/edit/:id', isAuthenticated, (req,res) => {
+  Employee.findByIdAndUpdate(req.params.id,)
+})
 
 function isAuthenticated(req, res, next) {
     if(!req.session.user) {

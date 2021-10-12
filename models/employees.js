@@ -12,7 +12,7 @@ const employeeSchema = new Schema ({
     thursday: {type: Boolean, default: false},
     friday: {type: Boolean, default: false},
     saturday: {type: Boolean, default: false},
-    sunday: {type: Boolean, default: false},
+    sunday: {type: Boolean, default: false}
   }
 },{timestamps:true});
 
