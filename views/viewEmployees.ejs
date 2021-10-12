@@ -10,7 +10,7 @@
   <title>Schedule</title>
 </head>
 <body>
-  <% if(user ) { %>
+  <% if(user) { %>
 
       <h1>Home Page</h1>
       <nav>
@@ -18,8 +18,7 @@
       </nav>
       <h3>Add or Remove Employees</h3>
       <div>
-        <button>+</button>
-        <button>-</button>
+        <a href="/addEmployee"><button>+</button></a>
       </div>
       <table>
         <tr>
@@ -29,21 +28,22 @@
         </tr>
         <%for (let i = 0;i<employees.length;i++) {%>
         <tr>
+          <form method="POST" action="/employee/edit/<%=employees[i]._id%>">
           <td><%=employees[i].firstName%> <%=employees[i].lastName%></td>
           <td><%=employees[i].email%></td>
-          <td><%=employees[i].availability%></td>
+          <td><a href="/employee/delete/<%=employees[i]._id%>"><button type="button">-</button></a></td>
+          <td><button type="button">Edit</button></td>
+        </form>
         </tr>
         <%}%>
 
       </table>
       <a href="/schedule"><button>Back to Home</button></a>
   <% } else { %>
-
       <nav>
         <a href="/login">Login</a>
         <a href="/signup">Signup</a>
       </nav>
-
   <% } %>
 </body>
 </html>
