@@ -15,25 +15,25 @@ function displayForm (id) {
 <label>Availability:
   <div class="flex-column">
   <label> Monday:
-    <input type="checkbox" value="true" name="availability.monday" ${employees[id].availability.monday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="monday" ${employees[id].availability.monday ? 'checked' : ''}>
   </label>
   <label> Tuesday:
-    <input type="checkbox" value="true" name="availability.tuesday" ${employees[id].availability.tuesday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="tuesday" ${employees[id].availability.tuesday ? 'checked' : ''}>
   </label>
   <label> Wednesday:
-    <input type="checkbox" value="true" name="availability.wednesday" ${employees[id].availability.wednesday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="wednesday" ${employees[id].availability.wednesday ? 'checked' : ''}>
   </label>
   <label> Thursday:
-    <input type="checkbox" value="true" name="availability.thursday" ${employees[id].availability.thursday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="thursday" ${employees[id].availability.thursday ? 'checked' : ''}>
   </label>
   <label> Friday:
-    <input type="checkbox" value="true" name="availability.friday" ${employees[id].availability.friday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="friday" ${employees[id].availability.friday ? 'checked' : ''}>
   </label>
   <label> Saturday:
-    <input type="checkbox" value="true" name="availability.saturday" ${employees[id].availability.saturday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="saturday" ${employees[id].availability.saturday ? 'checked' : ''}>
   </label>
   <label> Sunday:
-    <input type="checkbox" value="true" name="availability.sunday" ${employees[id].availability.sunday ? 'checked' : ''}>
+    <input type="checkbox" value="true" name="sunday" ${employees[id].availability.sunday ? 'checked' : ''}>
   </label>
 </div>
 </label>

@@ -190,7 +190,7 @@ tr:last-child > td:last-child {
 
 .modal {
   display: none;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   top: 0;
