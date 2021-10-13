@@ -15,24 +15,31 @@ function displayForm (id) {
 <label>Availability:
   <div class="flex-column">
   <label> Monday:
+  <input type='hidden' value='false' name='availability.monday'>
     <input type="checkbox" value="true" name="availability.monday" ${employees[id].availability.monday ? 'checked' : ''}>
   </label>
   <label> Tuesday:
+  <input type='hidden' value='false' name='availability.tuesday'>
     <input type="checkbox" value="true" name="availability.tuesday" ${employees[id].availability.tuesday ? 'checked' : ''}>
   </label>
   <label> Wednesday:
+  <input type='hidden' value='false' name='availability.wednesday'>
     <input type="checkbox" value="true" name="availability.wednesday" ${employees[id].availability.wednesday ? 'checked' : ''}>
   </label>
   <label> Thursday:
+  <input type='hidden' value='false' name='availability.thursday'>
     <input type="checkbox" value="true" name="availability.thursday" ${employees[id].availability.thursday ? 'checked' : ''}>
   </label>
   <label> Friday:
+  <input type='hidden' value='false' name='availability.friday'>
     <input type="checkbox" value="true" name="availability.friday" ${employees[id].availability.friday ? 'checked' : ''}>
   </label>
   <label> Saturday:
+  <input type='hidden' value='false' name='availability.saturday'>
     <input type="checkbox" value="true" name="availability.saturday" ${employees[id].availability.saturday ? 'checked' : ''}>
   </label>
   <label> Sunday:
+  <input type='hidden' value='false' name='availability.sunday'>
     <input type="checkbox" value="true" name="availability.sunday" ${employees[id].availability.sunday ? 'checked' : ''}>
   </label>
 </div>

@@ -125,6 +125,14 @@ tr:last-child > td:last-child {
   justify-content: space-around;
 }
 
+.schedule-unit {
+  background-color: violet;
+  height: 2.5em;
+  width:100%;
+  border-radius: 0.2em;
+  margin: 0.2em 0;
+}
+
 .forgot-password {
   color:blue;
   text-align: center;

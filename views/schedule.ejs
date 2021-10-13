@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="assets\employee_favicon.png" sizes="32x32">
-  <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="assets\employee_favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="css/style.css">
   <meta name="Author" content="Ryan Scarbel">
   <title>Schedule</title>
 </head>
 <body>
-  <% if(user ) { %>
-
-      <h1>Home Page</h1>
-      <nav>
-        <a href="/logout">Logout</a>
-      </nav>
-      <a href="/viewEmployees"><button>Add or Remove Employee</button></a>
-  <% } else { %>
-
-      <nav>
-        <a href="/login">Login</a>
-        <a href="/signup">Signup</a>
-      </nav>
-
-  <% } %>
+    <h1><%=currentUser.businessName%> Weekly Schedule</h1>
+    <nav class="flex-container" style="justify-content: center;">
+      <p style="padding-right:2em;">Welcome, <%=currentUser.username%>!</p>
+      <a href="/logout">Logout</a>
+    </nav>
+    <a href="/viewEmployees"><button>View Employees</button></a>
+    <table>
+      <tr>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+      <tr id="schedule">
+        <%=schedule%>
+      </tr>
+    </table>
 </body>
 </html>
