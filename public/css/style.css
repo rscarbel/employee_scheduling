@@ -82,6 +82,7 @@ table {
 
 td,th {
   padding: 1em;
+  overflow-x:auto;
 }
 
 tr:nth-child(odd) {
@@ -129,7 +130,7 @@ tr:last-child > td:last-child {
 }
 
 .schedule-unit {
-  height: 2.5em;
+  min-height: 2.5em;
   width:100%;
   border-radius: 0.2em;
   margin: 0.2em auto;
@@ -146,6 +147,7 @@ tr:last-child > td:last-child {
 .schedule-cell {
   vertical-align: top;
   padding: 0.1em;
+  border: 1px solid rgb(50,50,50);
 }
 
 .schedule-unit:nth-child(4n) {
@@ -200,6 +202,8 @@ tr:last-child > td:last-child {
   cursor:pointer;
 }
 
-/* @media only screen and (min-width: 768px) {
-
-} */
+@media only screen and (max-width: 768px) {
+  .image-column {
+    display: none;
+  }
+}

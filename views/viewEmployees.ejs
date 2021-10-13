@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" href="assets\employee_favicon.png" sizes="32x32">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/edit.js" defer></script>
+  <style>td{max-width: 20vw;}</style>
   <meta name="Author" content="Ryan Scarbel">
   <title>Employees</title>
 </head>
@@ -23,7 +24,7 @@
       </div>
       <table class="shadow">
         <tr>
-          <th>Profile Picture</th>
+          <th class="image-column">Profile Picture</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
@@ -47,7 +48,7 @@
             }
           }</script>
         <tr>
-          <td><img src="assets/default_profile_picture.png" style="max-width: 90px; max-height: 90px;"></td>
+          <td class="image-column"><img src="assets/default_profile_picture.png" style="max-width: 90px; max-height: 90px;"></td>
 
           <td id="firstName-<%=id%>"><%=employees[i].firstName%></td>
 
