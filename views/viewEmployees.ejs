@@ -6,42 +6,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="assets\employee_favicon.png" sizes="32x32">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/edit.js"></script>
+  <script src="js/edit.js" defer></script>
   <meta name="Author" content="Ryan Scarbel">
-  <title>Schedule</title>
+  <title>Employees</title>
 </head>
 <body>
+  <script>const employees = {};</script>
   <% if(user) { %>
 
-      <h1>Home Page</h1>
+      <h1>Employees</h1>
       <nav>
         <a href="/logout">Logout</a>
       </nav>
-      <h3>Add or Remove Employees</h3>
-      <div>
-        <a href="/addEmployee"><button>+</button></a>
+      <div style="margin: 1em 0">
+        <a href="/addEmployee"><button>Add Employee</button></a>
       </div>
-      <table>
+      <table class="shadow">
         <tr>
+          <th>Profile Picture</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Email</th>
-          <th> </th>
+          <th></th>
           <th></th>
         </tr>
-        <%for (let i = 0;i<employees.length;i++) {let id = employees[i]._id%>
+        <%for (let i = 0; i<employees.length; i++) {
+          let id = employees[i]._id;%>
+          <script>employees['<%=id%>'] = {
+            'email': '<%=employees[i].email%>',
+            'firstName': '<%=employees[i].firstName%>',
+            'lastName': '<%=employees[i].lastName%>',
+            'availability': {
+              'monday': <%=employees[i].availability.monday%>,
+              'tuesday': <%=employees[i].availability.tuesday%>,
+              'wednesday': <%=employees[i].availability.wednesday%>,
+              'thursday': <%=employees[i].availability.thursday%>,
+              'friday': <%=employees[i].availability.friday%>,
+              'saturday': <%=employees[i].availability.saturday%>,
+              'sunday': <%=employees[i].availability.sunday%>
+            }
+          }</script>
         <tr>
-          <script>
-            let isEditable_<%=id%> = false;
-          </script>
-          <td  id="firstName-<%=id%>"><%=employees[i].firstName%></td>
-          <td  id="lastName-<%=id%>"> <%=employees[i].lastName%></td>
+          <td><img src="assets/default_profile_picture.png" style="max-width: 90px; max-height: 90px;"></td>
+
+          <td id="firstName-<%=id%>"><%=employees[i].firstName%></td>
+
+          <td id="lastName-<%=id%>"> <%=employees[i].lastName%></td>
+
           <td id="email-<%=id%>"><%=employees[i].email%></td>
-          <td><a href="/employee/delete/<%=id%>"><button type="button">-</button></a></td>
-          <td><button onclick="submitRequest(<%=id%>)" id="edit_<%=id%>" type="button">Edit</button></td>
-        </tr>
+
+          <td><button class="edit" onclick="displayForm('<%=id%>')" id="edit_<%=id%>" type="button">Edit</button></td>
+
+          <td><a href="/employee/delete/<%=id%>"><button class="delete" type="button"><img src="assets/trashcanIcon.png" alt="Delete" style="max-width: 1.5em; max-height: 1.5em;"></button></a></td>
+
+          </tr>
         <%}%>
       </table>
+      <div class="modal" onclick="hideModal(event)"></div>
       <a href="/schedule"><button>Back to Home</button></a>
   <% } else { %>
       <nav>

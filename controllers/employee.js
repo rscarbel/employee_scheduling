@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Employee = require('../models/employees');
+const isAuthenticated = require('../public/js/isAuthenticated');
 
 router.get('/employee/delete/:id', isAuthenticated, (req, res) => {
-    Employee.deleteOne({id: req.params.id},(err, result) => {
+    Employee.deleteOne({_id: req.params.id},(err, result) => {
       if (err) {
         res.send(err)
       } else {
@@ -33,14 +34,10 @@ router.post('/addEmployee', isAuthenticated, (req, res) => {
 });
 
 router.post('/employee/edit/:id', isAuthenticated, (req,res) => {
-  Employee.findByIdAndUpdate(req.params.id,)
+  Employee.findByIdAndUpdate(req.params.id, req.body, (err, employee) => {
+    console.log (req.body)
+    res.redirect('/viewEmployees')
+  })
 })
-
-function isAuthenticated(req, res, next) {
-    if(!req.session.user) {
-        return res.redirect('/login');
-    }
-    next();
-}
 
 module.exports = router;

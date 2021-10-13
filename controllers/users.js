@@ -2,11 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
-
-router.get('/users/delete', async (req, res) => {
-    await User.deleteMany({});
-    res.redirect('/');
-});
+const isAuthenticated = require('../public/js/isAuthenticated');
 
 router.get('/login', (req, res) => {
     res.render('login.ejs', { error: '' });
@@ -44,7 +40,7 @@ router.post('/signup', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.session.destroy(() => {
-        res.redirect('/');
+        res.redirect('/login');
     });
 });
 
@@ -54,12 +50,5 @@ router.get('/schedule', isAuthenticated, (req, res) => {
         res.render('schedule.ejs', { user });
     });
 });
-
-function isAuthenticated(req, res, next) {
-    if(!req.session.user) {
-        return res.redirect('/login');
-    }
-    next();
-}
 
 module.exports = router;
