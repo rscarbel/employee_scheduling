@@ -4,4 +4,5 @@
 # Screenshots #
 
 Log in screen:
-![login screen](./screenshots/loginScreen.png){height=150}
+
+<img src="./screenshots/loginScreen.png" alt="login" height="100"/>
