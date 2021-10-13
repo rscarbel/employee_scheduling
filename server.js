@@ -32,7 +32,7 @@ app.get('*', (req, res) => {
   res.redirect('/schedule')
 })
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
     console.log(`Express is listening on port:${PORT}`);
 });
