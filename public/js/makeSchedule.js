@@ -11,7 +11,7 @@ const daysOfWeek = [
 function populateTable (employees) {
   let tableContents = '';
   for (let i = 0; i < 7; i++) {
-    tableContents += `<td class="flex-column">${iterateThroughEmployees(employees,daysOfWeek[i])}</td>`
+    tableContents += `<td class="schedule-cell">${iterateThroughEmployees(employees,daysOfWeek[i])}</td>`
   }
   return tableContents
 }
@@ -26,7 +26,9 @@ function iterateThroughEmployees (employees,day) {
 
 function addEmployee (employee,day){
   if (employee.availability[day] === true) {
-    return `<div class="schedule-unit">${employee.firstName} ${employee.lastName}</div>`
+    return `<div class="schedule-unit small-shadow">${employee.firstName} ${employee.lastName}</div>`
+  } else {
+    return ''
   }
 }
 

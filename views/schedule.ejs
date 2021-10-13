@@ -26,9 +26,8 @@
         <th>Saturday</th>
         <th>Sunday</th>
       </tr>
-      <tr id="schedule">
-        <%=schedule%>
-      </tr>
+      <tr id="schedule"></tr>
     </table>
+    <script>document.querySelector('#schedule').innerHTML = '<%-schedule%>'</script>
 </body>
 </html>

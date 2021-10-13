@@ -118,6 +118,9 @@ tr:last-child > td:last-child {
 .shadow {
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 45%), 0 6px 20px 0 rgb(0 0 0 / 45%);
 }
+.small-shadow {
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 45%), 0 3px 10px 0 rgb(0 0 0 / 45%);
+}
 
 .flex-container {
   display: flex;
@@ -126,13 +129,49 @@ tr:last-child > td:last-child {
 }
 
 .schedule-unit {
-  background-color: violet;
   height: 2.5em;
   width:100%;
   border-radius: 0.2em;
-  margin: 0.2em 0;
+  margin: 0.2em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  word-wrap: anywhere;
+  cursor: default;
+}
+.schedule-unit {
+  cursor: default;
+}
+.schedule-cell {
+  vertical-align: top;
+  padding: 0.1em;
 }
 
+.schedule-unit:nth-child(4n) {
+  background-color: rgb(255, 210, 255);
+}
+.schedule-unit:nth-child(4n):hover {
+  background-color: rgb(255, 192, 255);
+}
+.schedule-unit:nth-child(4n+1) {
+  background-color: rgb(210, 211, 255);
+}
+.schedule-unit:nth-child(4n+1):hover {
+  background-color: rgb(194, 195, 255);
+}
+.schedule-unit:nth-child(4n+2) {
+  background-color: rgb(212, 255, 210);
+}
+.schedule-unit:nth-child(4n+2):hover {
+  background-color: rgb(181, 255, 177);
+}
+.schedule-unit:nth-child(4n+3) {
+  background-color: rgb(255, 252, 210);
+}
+.schedule-unit:nth-child(4n+3):hover {
+  background-color: rgb(255, 247, 139);
+}
 .forgot-password {
   color:blue;
   text-align: center;
