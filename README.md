@@ -24,11 +24,7 @@ Home page Screen:
 
 Employee view screen:
 
-<img src="./screenshots/employeeView.png" alt="employee view" height="250px"/>
-
-Edit employee screen:
-
-<img src="./screenshots/editEmployeeScreen.png" alt="employee edit" height="250px"/>
+<img src="./screenshots/employeeViewScreen.png" alt="employee view" height="250px"/><img src="./screenshots/editEmployeeScreen.png" alt="employee edit" height="250px"/>
 
 
 - - - -
