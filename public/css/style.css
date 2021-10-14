@@ -5,7 +5,8 @@ body {
   margin: auto;
   text-align: center;
   width: 100%;
-  max-width: 768px;
+  max-width: 1000px;
+  background-color:rgb(239, 243, 255);
 }
 
 input[type=text], input[type=email], input[type=password] {
@@ -76,7 +77,7 @@ form > button:hover {
 }
 
 table {
-  border-radius: 15px;
+  border-radius: 8px;
   margin: 1.5em 0;
 }
 
@@ -89,19 +90,19 @@ tr:nth-child(odd) {
   background-color: rgb(239, 241, 255);
 }
 tr:first-child {
-  border-radius: 15px 15px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 th:first-child {
-  border-radius: 15px 0 0 0;
+  border-radius: 8px 0 0 0;
 }
 th:last-child {
-  border-radius: 0 15px 0 0;
+  border-radius: 0 8px 0 0;
 }
 tr:last-child > td:first-child {
-  border-radius: 0 0 0 15px;
+  border-radius: 0 0 0 8px;
 }
 tr:last-child > td:last-child {
-  border-radius: 0 0 15px 0;
+  border-radius: 0 0 8px 0;
 }
 
 .edit {
@@ -148,31 +149,33 @@ tr:last-child > td:last-child {
   vertical-align: top;
   padding: 0.1em;
   border: 1px solid rgb(50,50,50);
+  height: 3em;
+  width: 14vw;
 }
 
 .schedule-unit:nth-child(4n) {
-  background-color: rgb(255, 210, 255);
-}
-.schedule-unit:nth-child(4n):hover {
-  background-color: rgb(255, 192, 255);
-}
-.schedule-unit:nth-child(4n+1) {
   background-color: rgb(210, 211, 255);
 }
-.schedule-unit:nth-child(4n+1):hover {
+.schedule-unit:nth-child(4n):hover {
   background-color: rgb(194, 195, 255);
 }
+.schedule-unit:nth-child(4n+1) {
+  background-color: rgb(255, 210, 255);
+}
+.schedule-unit:nth-child(4n+1):hover {
+  background-color: rgb(255, 192, 255);
+}
 .schedule-unit:nth-child(4n+2) {
-  background-color: rgb(212, 255, 210);
-}
-.schedule-unit:nth-child(4n+2):hover {
-  background-color: rgb(181, 255, 177);
-}
-.schedule-unit:nth-child(4n+3) {
   background-color: rgb(255, 252, 210);
 }
-.schedule-unit:nth-child(4n+3):hover {
+.schedule-unit:nth-child(4n+2):hover {
   background-color: rgb(255, 247, 139);
+}
+.schedule-unit:nth-child(4n+3) {
+  background-color: rgb(212, 255, 210);
+}
+.schedule-unit:nth-child(4n+3):hover {
+  background-color: rgb(181, 255, 177);
 }
 .forgot-password {
   color:blue;
