@@ -21,7 +21,9 @@ button {
   width: fit-content;
   border: none;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 45%), 0 2px 6px 0 rgb(0 0 0 / 45%);
+  margin:1em;
 }
+
 button:hover {
   cursor: pointer;
   background-color: rgb(224, 224, 224);
@@ -141,9 +143,11 @@ tr:last-child > td:last-child {
   flex-wrap: wrap;
   word-wrap: anywhere;
   cursor: default;
+  background-color: rgb(210, 211, 255);
 }
-.schedule-unit {
-  cursor: default;
+.schedule-unit:hover {
+  cursor: pointer;
+  background-color: rgb(194, 195, 255);
 }
 .schedule-cell-container {
   vertical-align: top;
@@ -153,28 +157,22 @@ tr:last-child > td:last-child {
   width: 14vw;
 }
 
-.schedule-unit:nth-child(4n) {
-  background-color: rgb(210, 211, 255);
-}
-.schedule-unit:nth-child(4n):hover {
-  background-color: rgb(194, 195, 255);
-}
-.schedule-unit:nth-child(4n+1) {
+.schedule-unit:nth-child(1) {
   background-color: rgb(255, 210, 255);
 }
-.schedule-unit:nth-child(4n+1):hover {
+.schedule-unit:nth-child(1):hover {
   background-color: rgb(255, 192, 255);
 }
-.schedule-unit:nth-child(4n+2) {
+.schedule-unit:nth-child(2) {
   background-color: rgb(255, 252, 210);
 }
-.schedule-unit:nth-child(4n+2):hover {
+.schedule-unit:nth-child(2):hover {
   background-color: rgb(255, 247, 139);
 }
-.schedule-unit:nth-child(4n+3) {
+.schedule-unit:nth-child(3) {
   background-color: rgb(212, 255, 210);
 }
-.schedule-unit:nth-child(4n+3):hover {
+.schedule-unit:nth-child(3):hover {
   background-color: rgb(181, 255, 177);
 }
 .forgot-password {
