@@ -12,13 +12,13 @@ router.post('/login', (req, res) => {
     User.findOne({ username: req.body.username }, (err, foundUser) => {
 
         if(!foundUser) {
-            return res.render('login.ejs', {error: 'Invalid Credentials'});
+            return res.render('login.ejs', {error: 'Invalid username or password'});
         }
 
         const isMatched = bcrypt.compareSync(req.body.password, foundUser.password);
 
         if(!isMatched) {
-            return res.render('login.ejs', {error: 'Invalid Credentials'});
+            return res.render('login.ejs', {error: 'Invalid username or password'});
         }
 
         req.session.user = foundUser._id;
@@ -26,15 +26,32 @@ router.post('/login', (req, res) => {
         res.redirect('/schedule')
     });
 });
+
 router.get('/signup', (req, res) => {
-    res.render('signup.ejs');
+    res.render('signup.ejs', {error: null});
 });
 
 router.post('/signup', (req, res) => {
    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (err, user) => {
+    if (err) {
+      let message = '';
+      console.log(err.code)
+      console.log(typeof(err.code))
+      switch (err.code) {
+        case 11000:
+          console.log('This ran')
+          message += 'The username must be unique.\n';
+          break;
+        default:
+          message = 'There was an error creating your account.'
+      }
+
+      res.render('signup.ejs',{error: message})
+    } else {
       req.session.user = user._id
       res.redirect('/schedule');
+    }
   });
 });
 

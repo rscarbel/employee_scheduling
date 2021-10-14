@@ -13,18 +13,27 @@
 <body>
     <h1>Signup</h1>
     <p>Create an account with us, or <a href="/login">login</a> if you already have an account.</p>
+    <%if (error) { %>
+      <p style="color: red;text-align: left;"><%-error %></p>
+      <% } %>
     <form class="shadow" action="/signup" method="POST" autocomplete="off">
         <label>Username:
-            <input type="text" name="username" required>
+            <input type="text" pattern="^[a-zA-Z0-9](_(?!(\.|_))|\.(?!(_|\.))|[a-zA-Z0-9]){6,25}[a-zA-Z0-9]$" title="Username must be between 6 and 25 characters long, can only contain alphanumeric characters, underscores or dots, underscore and dot cannot be at the start or end of username, underscore and dot cannot be next to each other or used multiple times in a row" name="username" required>
         </label>
         <label>Password:
-            <input type="password" name="password" required>
+            <input pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,100}$" type="password" title="Must begin with a letter, contain at least one number and one uppercase and one lowercase letter and one symbol, and be between 8 and 100 characters" name="password" required>
+        </label>
+        <label>First Name:
+          <input type="text" name="firstName" maxlength="150" required>
+        </label>
+        <label>Last Name:
+          <input type="text" maxlength="150" name="lastName" required>
         </label>
         <label>Email:
-          <input type="email" name="email" required>
+          <input type="email" maxlength="320" name="email" required>
       </label>
-      <label>Business Name:
-        <input type="text" name="businessName" required>
+      <label>Company Name:
+        <input type="text" maxlength="300" name="companyName" required>
     </label>
         <button class="shadow">Sign Up</button>
     </form>
