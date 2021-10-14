@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="assets\employee_favicon.png" sizes="32x32">
     <link rel="stylesheet" href="css/style.css">
+    <script src="js\moveItems.js" defer></script>
   <meta name="Author" content="Ryan Scarbel">
   <title>Schedule</title>
 </head>
@@ -16,6 +17,7 @@
       <a href="/logout">Logout</a>
     </nav>
     <a href="/viewEmployees"><button>View Employees</button></a>
+    <h3>Schedule</h3>
     <table>
       <tr>
         <th>Monday</th>
@@ -26,8 +28,29 @@
         <th>Saturday</th>
         <th>Sunday</th>
       </tr>
-      <tr id="schedule"></tr>
+      <tr id="schedule">
+        <td id="monday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="tuesday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="wednesday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="thursday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="friday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="saturday-schedule" class="schedule-cell schedule-cell-container"></td>
+        <td id="sunday-schedule" class="schedule-cell schedule-cell-container"></td>
+      </tr>
     </table>
-    <script>document.querySelector('#schedule').innerHTML = '<%-schedule%>'</script>
+    <h3>Available employees</h3>
+    <table>
+      <tr>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+      <tr id="availability"></tr>
+    </table>
+    <script>document.querySelector('#availability').innerHTML = `<%-schedule%>`</script>
 </body>
 </html>
