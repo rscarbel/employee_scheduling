@@ -38,7 +38,6 @@ https://employee-scheduling-app.herokuapp.com/
 
 # TODO #
 
-* link employees to employers
 * allow editing of the schedule
 
 * Add the following properties to the employee model:
