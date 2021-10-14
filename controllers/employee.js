@@ -18,8 +18,8 @@ router.get('/employeeData', isAuthenticated, (req, res) => {
 });
 
 router.get('/viewEmployees', isAuthenticated, (req, res) => {
-  Employee.find({},(err,foundEmployees) => {
-    res.render('viewEmployees.ejs', {employees: foundEmployees, user: req.session.user})
+  Employee.find({companyName: req.session.company},(err,foundEmployees) => {
+    res.render('viewEmployees.ejs', {employees: foundEmployees})
   })
 });
 
@@ -28,6 +28,9 @@ router.get('/addEmployee', isAuthenticated, (req,res) => {
 })
 
 router.post('/addEmployee', isAuthenticated, (req, res) => {
+  req.body.createdBy = req.session.fullname;
+  req.body.lastEditedBy = req.session.fullname;
+  req.body.companyName = req.session.company
    Employee.create(req.body,(err,employee) => {
      res.redirect('/viewEmployees')
    })
@@ -38,6 +41,7 @@ router.post('/employee/edit/:id', isAuthenticated, (req,res) => {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
+    company: req.session.company,
     availability: {
       monday: false,
       tuesday: false,
@@ -46,8 +50,10 @@ router.post('/employee/edit/:id', isAuthenticated, (req,res) => {
       friday: false,
       saturday: false,
       sunday: false,
-    }
+    },
+    lastEditedBy: req.session.fullname
   };
+  //I did this because only the days are going to have a boolean value, thus only availabilty will be changed
   Reflect.ownKeys(req.body).forEach(e => {
     if (updatedEmployee.availability[e] === false) {
       updatedEmployee.availability[e] = req.body[e];

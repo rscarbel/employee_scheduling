@@ -20,7 +20,8 @@ router.post('/login', (req, res) => {
         if(!isMatched) {
             return res.render('login.ejs', {error: 'Invalid username or password'});
         }
-
+        req.session.company = foundUser.companyName;
+      req.session.fullname = `${foundUser.firstName} ${foundUser.lastName}`
         req.session.user = foundUser._id;
 
         res.redirect('/schedule')
@@ -33,15 +34,14 @@ router.get('/signup', (req, res) => {
 
 router.post('/signup', (req, res) => {
    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+
   User.create(req.body, (err, user) => {
     if (err) {
       let message = '';
-      console.log(err.code)
-      console.log(typeof(err.code))
+      //this is a switch so that I can handle more errors as the user model increases in complexity
       switch (err.code) {
         case 11000:
-          console.log('This ran')
-          message += 'The username must be unique.\n';
+          message += 'The username and email must be unique.\n';
           break;
         default:
           message = 'There was an error creating your account.'
@@ -49,7 +49,9 @@ router.post('/signup', (req, res) => {
 
       res.render('signup.ejs',{error: message})
     } else {
-      req.session.user = user._id
+      req.session.company = user.companyName;
+      req.session.fullname = `${user.firstName} ${user.lastName}`
+      req.session.user = user._id;
       res.redirect('/schedule');
     }
   });
