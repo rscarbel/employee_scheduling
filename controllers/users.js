@@ -33,6 +33,11 @@ router.get('/signup', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
+
+  if ((req.body.password.length < 8) || (req.body.password.length > 100)) {
+    res.render('signup.ejs', {error: 'Password must be between 8 and 100 characters.'})
+  }
+
    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
 
   User.create(req.body, (err, user) => {

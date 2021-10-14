@@ -144,7 +144,7 @@ tr:last-child > td:last-child {
 .schedule-unit {
   cursor: default;
 }
-.schedule-cell {
+.schedule-cell-container {
   vertical-align: top;
   padding: 0.1em;
   border: 1px solid rgb(50,50,50);
