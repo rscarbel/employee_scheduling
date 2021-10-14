@@ -38,8 +38,6 @@ https://employee-scheduling-app.herokuapp.com/
 
 # TODO #
 
-* allow editing of the schedule
-
 * Add the following properties to the employee model:
     * preferred hours
     * job role
