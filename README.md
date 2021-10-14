@@ -29,7 +29,11 @@ Employee view screen:
 
 - - - -
 ## getting started ##
+Localhost:
 node server.js
+
+Deployment:
+https://employee-scheduling-app.herokuapp.com/
 - - - -
 
 # TODO #
